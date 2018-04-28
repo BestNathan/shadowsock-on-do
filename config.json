@@ -1,8 +1,8 @@
 {
-    "server": "104.131.85.86",
+    "server": "0.0.0.0",
     "server_port": 8388,
     "local_port": 1080,
-    "password": "nathan!",
+    "password": "bestnathan",
     "timeout": 600,
     "method": "table"
 }
