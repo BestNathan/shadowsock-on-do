@@ -1,5 +1,9 @@
 FROM python
 
+RUN apt-get update
+
+RUN apt-get upgrade -y
+
 RUN apt-get install -y supervisor
 
 RUN mkdir -p /var/log/supervisor && pip install git+https://github.com/shadowsocks/shadowsocks.git@master
