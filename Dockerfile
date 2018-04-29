@@ -1,9 +1,11 @@
-FROM node
+FROM python
 
-RUN mkdir -p /usr/local/src/shadowsocks && npm install shadowsocks -g
+RUN apt-get install -y supervisor
 
-COPY ./config.json /usr/local/src/shadowsocks/config.json
+RUN mkdir -p /var/log/supervisor && pip install git+https://github.com/shadowsocks/shadowsocks.git@master
+
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 WORKDIR /usr/local/src/shadowsocks
 
-CMD [ "ssserver" ]
+CMD ["/usr/bin/supervisord"]
